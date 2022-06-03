@@ -24,6 +24,7 @@
 <template>
   <form class="card" @submit.prevent="emit('submitUsername', username)">
     <button type="submit">
+      <span class="sr-only">Search</span>
       <img src="@/assets/images/icon-search.svg" class="search-icon" alt="">
     </button>
     <input v-model="username" type="text" placeholder="Search GitHub username..." autofocus>

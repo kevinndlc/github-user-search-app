@@ -35,7 +35,7 @@ defineProps<{
           </div>
         </div>
         <div class="profile__inner">
-          <p class="profile__bio">{{ user.bio }}</p>
+          <p class="profile__bio">{{ user.bio ?? 'This profile has no bio' }}</p>
           <div class="profile__stats">
             <div>
               <h4 class="stat__title">Repos</h4>

@@ -4,8 +4,9 @@ import SearchBar from "./components/SearchBar.vue";
 import UserProfile from "./components/UserProfile.vue";
 import { ref } from "vue";
 
-const user = ref('');
+const user = ref(null);
 const isUserNotFound = ref(false);
+const nbSuccess = ref(0);
 
 async function fetchUserData(username: string) {
   try {
@@ -14,6 +15,15 @@ async function fetchUserData(username: string) {
     if (userResponse.message) {
       isUserNotFound.value = true;
     } else {
+      nbSuccess.value++;
+      if (user.value !== null) {
+        await new Promise((res) => {
+          user.value = null;
+          setTimeout(() => {
+            res(true)
+          }, 250);
+        })
+      }
       user.value = userResponse;
       isUserNotFound.value = false;
     }
@@ -27,7 +37,7 @@ async function fetchUserData(username: string) {
   <TheHeader />
 
   <main>
-    <SearchBar @submit-username="fetchUserData" :is-user-not-found="isUserNotFound"/>
+    <SearchBar @submit-username="fetchUserData" :is-user-not-found="isUserNotFound" :nb-success="nbSuccess"/>
     <UserProfile :user="user"/>
   </main>
 </template>
@@ -46,6 +56,12 @@ async function fetchUserData(username: string) {
 #app {
   width: min(730rem / 16, 100% - 3rem);
   margin-inline: auto;
+
+  padding-block: 2rem;
+
+  @include mixins.tabletAndUp {
+    padding-block: 0;
+  }
 }
 
 .card {

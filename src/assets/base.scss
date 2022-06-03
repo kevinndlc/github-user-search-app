@@ -21,6 +21,7 @@
   --color-text-muted: var(--color-medium-gray);
   --color-text-input: hsl(220deg 18% 16%);
   --color-accent: var(--color-blue);
+  --color-accent-hover: hsl(212deg, 100%, 69%);
   --color-toggle: var(--color-grayish-blue);
   --color-toggle-hover: hsl(220deg 18% 16%);
 
@@ -36,6 +37,7 @@
   --color-text-muted: var(--color-white);
   --color-text-input: hsl(--color-white);
   --color-accent: var(--color-blue);
+  --color-accent-hover: hsl(212deg, 100%, 69%);
   --color-toggle: var(--color-white);
   --color-toggle-hover: hsl(220deg 44% 70%);
 }

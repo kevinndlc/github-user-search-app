@@ -39,12 +39,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2rem;
   padding-bottom: 2.25rem;
-
-  @include mixins.tabletAndUp {
-    padding-top: 0;
-  }
 
   .theme-toggle {
     display: flex;

@@ -1,20 +1,23 @@
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
+  import { onMounted, ref, watch } from 'vue';
 
-  const username = ref('');
+  const username = ref('octocat');
 
   const props = defineProps<{
-    isUserNotFound: boolean
+    isUserNotFound: boolean;
+    nbSuccess: number
   }>()
 
   const emit = defineEmits<{
-    (e: 'submitUsername', username: string): void
+    (e: 'submitUsername', username: string): void;
   }>()
 
-  watch(props, () => {
-    if (!props.isUserNotFound) {
-      username.value = '';
-    }
+  watch(() => props.nbSuccess, () => {
+    username.value = '';
+  })
+
+  onMounted(() => {
+    emit('submitUsername', username.value);
   })
 </script>
 
@@ -77,6 +80,10 @@
       color: hsl(0 91% 62%);
       font-weight: 700;
       flex-shrink: 0;
+
+      @include mixins.tabletAndUp {
+        font-size: calc(15rem / 16);
+      }
     }
 
     .btn {
@@ -87,6 +94,11 @@
       font-size: calc(14rem / 16);
       line-height: 1.5;
       padding: 0.75rem 1rem;
+      transition: background-color 0.3s ease-out;
+
+      &:where(:hover, :focus-visible) {
+        background-color: var(--color-accent-hover);
+      }
 
       @include mixins.tabletAndUp {
         font-size: 1rem;

@@ -61,6 +61,7 @@ async function fetchUserData(username: string) {
 
   @include mixins.tabletAndUp {
     padding-block: 0;
+    padding-bottom: 1.625rem;
   }
 }
 

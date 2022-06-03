@@ -1,0 +1,11 @@
+@mixin tabletAndUp {
+  @media screen and (min-width: 35rem) {
+    @content;
+  }
+}
+
+@mixin laptopAndUp {
+  @media screen and (min-width: 65rem) {
+    @content;
+  }
+}

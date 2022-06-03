@@ -1,0 +1,106 @@
+@use './scss/mixins';
+
+:root {
+  --color-blue: hsl(212deg 100% 50%);
+  --color-grayish-blue: hsl(217deg 35% 45%);
+  --color-grayish-dark-blue: hsl(222deg 41% 20%);
+  --color-very-dark-gray: hsl(220deg 40% 13%);
+  --color-dark-gray: hsl(217deg 21% 21%);
+  --color-medium-gray: hsl(217deg 20% 51%);
+  --color-soft-gray: hsl(227deg 100% 98%);
+  --color-white: hsl(0 0% 100%);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--color-soft-gray);
+  --color-foreground: var(--color-white);
+
+  --color-heading: var(--color-dark-gray);
+  --color-text: var(--color-grayish-blue);
+  --color-text-muted: var(--color-medium-gray);
+  --color-text-input: hsl(220deg 18% 16%);
+  --color-accent: var(--color-blue);
+  --color-toggle: var(--color-grayish-blue);
+  --color-toggle-hover: hsl(220deg 18% 16%);
+
+  --section-gap: 160px;
+}
+
+:root.dark {
+  --color-background: var(--color-very-dark-gray);
+  --color-foreground: var(--color-grayish-dark-blue);
+
+  --color-heading: var(--color-white);
+  --color-text: var(--color-white);
+  --color-text-muted: var(--color-white);
+  --color-text-input: hsl(--color-white);
+  --color-accent: var(--color-blue);
+  --color-toggle: var(--color-white);
+  --color-toggle-hover: hsl(220deg 44% 70%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: 400;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'Space Mono', monospace;
+  font-size: calc(13rem / 16);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-heading);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:where(:hover, :focus-visible) {
+  text-decoration: underline;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+input::placeholder {
+  color: inherit;
+}
